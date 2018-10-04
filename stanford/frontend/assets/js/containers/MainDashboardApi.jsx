@@ -2,6 +2,7 @@ import { connect } from 'react-redux'
 import { MainDashboard } from '../components/MainDashboard'
 import { getCategories, selectCategory, getLeaderboard } from '../actions/Actions'
 import { refreshStudents } from '../actions/LoadUserActions'
+import { submitDemographicSurvey } from '../actions/Actions'
 
 const mapStateToProps = state => {
 	let leaderboardResultSorted = state.api.leaderboardResult.sort(function(a, b) {
@@ -13,7 +14,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
     return {
-    	getCategories: () => dispatch(getCategories()),
+        submitDemographicSurvey: () => dispatch(submitDemographicSurvey()),
+    	getCategories: (formData) => dispatch(getCategories(formData)),
     	selectCategory: (categoryId) => dispatch(selectCategory(categoryId)),
     	refreshStudents: () => dispatch(refreshStudents()),
     	getLeaderboard: () => dispatch(getLeaderboard()),

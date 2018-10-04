@@ -53,6 +53,11 @@ form.signup {
     max-width: 100%;
     height: -50%;
 }
+
+#introModal {
+    max-width: 70%;
+}
+
 .top-stripe {
     background-color: #5BC89A;
     height: 3px;

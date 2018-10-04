@@ -9,6 +9,19 @@ export const UPDATE_SUBMIT_ERROR = 'DISPLAY_SUBMIT_ERROR';
 export const UPDATE_CATEGORY_COMPLETED = 'DISPLAY_CATEGORY_COMPLETED';
 export const UPDATE_CATEGORY_RESULTS = 'UPDATE_CATEGORY_RESULTS';
 export const UPDATE_LEADERBOARD = 'UPDATE_LEADERBOARD';
+export const UPDATE_DEMOGRAPHIC_SURVEY = 'UPDATE_DEMOGRAPHIC_SURVEY'
+
+export function submitDemographicSurvey(formData) {
+	return dispatch => fetch("/profile/demosurvey", window.postHeader)
+	.then(r => r.json().then(categories => {
+		dispatch(updateDemographicSurvey)
+	}));
+}
+
+export function updateDemographicSurvey(response) {
+	type: UPDATE_SURVEY,
+	response
+}
 
 export function getUsers() {
 	return dispatch => fetch("/api/users", window.getHeader)
